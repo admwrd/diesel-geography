@@ -2,13 +2,14 @@
 
 use std::io::prelude::*;
 use std::convert::From;
+use serde::{Serialize, Deserialize};
 use diesel::deserialize::{self, FromSql};
 use diesel::serialize::{self, IsNull, Output, ToSql};
 use diesel::pg::Pg;
 use postgis::ewkb::Point;
 use crate::sql_types::*;
 
-#[derive(Debug, Copy, Clone, PartialEq, FromSqlRow, AsExpression)]
+#[derive(Debug, Copy, Clone, PartialEq, FromSqlRow, AsExpression, Serialize, Deserialize)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[sql_type = "Geography"]
 pub struct GeogPoint {

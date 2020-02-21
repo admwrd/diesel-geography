@@ -4,8 +4,7 @@
 
 #[macro_use] extern crate diesel;
 extern crate postgis;
-#[cfg(feature = "serde")]
-#[macro_use] extern crate serde;
+extern crate serde;
 
 pub mod sql_types;
 pub mod types;
