@@ -13,21 +13,21 @@ use crate::sql_types::*;
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[sql_type = "Geography"]
 pub struct GeogPoint {
-	pub x: f64, // lon
-	pub y: f64, // lat
+	pub lon: f64,
+	pub lat: f64,
 	pub srid: Option<i32>,
 }
 
 impl From<Point> for GeogPoint {
 	fn from(p: Point) -> Self {
 		let Point { x, y, srid } = p;
-		Self { x, y, srid }
+		Self { lon: x, lat: y, srid }
 	}
 }
 impl From<GeogPoint> for Point {
 	fn from(p: GeogPoint) -> Self {
-		let GeogPoint { x, y, srid } = p;
-		Self { x, y, srid }
+		let GeogPoint { lon, lat, srid } = p;
+		Self { x: lon, y: lat, srid }
 	}
 }
 
