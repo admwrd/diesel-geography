@@ -1,7 +1,7 @@
 [package]
 name = "diesel-geography"
-version = "0.2.0"
-authors = ["Boscop"]
+version = "0.2.2"
+authors = ["Boscop", "Keorn"]
 readme = "README.md"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/Boscop/diesel-geography"
@@ -12,5 +12,5 @@ categories = ["database"]
 
 [dependencies]
 diesel = { version = "1.3", features = ["postgres"] }
-postgis = "0.6"
+postgis = "0.8"
 serde = { version = "1.0", features = ["derive"] }
